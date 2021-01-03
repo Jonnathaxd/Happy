@@ -1,0 +1,83 @@
+* {
+  /*tirando configuração padrão dos navegadores :)*/
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: white;
+  height: 100vh; /*força o body cobrir 100% a tela do dispositivo;*/
+}
+
+#page-landing {
+  background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%) no-repeat; /*Função que faz uma mudança de cores com um gradiente*/
+  text-align: center;
+  min-height: 100vh; /*ele força no minimo ter 100% baseado na tela do dispositivo */
+
+  display: flex; /*força os seus filhos a ficarem "inline'*/
+
+  /*align-items: center;por o display está flex e só haver um unica div nele... usas-e os netos para alinhar horizontalmente*/
+}
+
+#container {
+  margin: auto; /*faz  msm coisa q o align itens porem tanto vertical quanto horizontal :D*/
+  /*ele só alinha o topo se o display for flex*/
+  width: 90%;
+}
+
+:root {
+  font-size: 62.5%; /*tamanho da fonte pai :D*/
+}
+
+body,
+input,
+textarea,
+button {
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 400;
+  font-family: "Nunito", sans-serif;
+  /*font: 400 18px/1 'Nunito', sans-serif; -> aqui seria uma forma resumida de escrever tudo anteriormente :)*/
+}
+
+.location,
+h1,
+.visit p {
+  height: 16vh;
+}
+
+.visit a {
+  width: 8rem;
+  height: 8rem;
+  background-color: #ffd666;
+
+  border: none;
+  border-radius: 3rem;
+
+  display: flex; /* ambos os dois alinhamentos funcionam por causa do display*/
+  align-items: center; /* alinhamento vertical*/
+  justify-content: center; /*alinhamento horizontal*/
+  margin: auto; /*vai centralizar ao meio pois o pai deles é flex tambem...*/
+
+}
+
+/*animação :D*/
+@keyframes up { /*esse up é o nome e pode ser o q vc quiser :D*/
+    from { /*onde ele vai começar*/
+        opacity: 0; /* essas informações sao o q vão ser aplicados naquele intervalor de inicio e fim*/
+        transform: translateY(16px);
+    }
+
+    to { /*onde ele vai parar*/
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+}
+
+.animate-up {
+    animation-name: up; /*nome da animação*/
+    animation-duration: 300ms; /*duração dela*/
+    animation-fill-mode: backwards;
+}
+
