@@ -1,22 +1,21 @@
 #page-create-orphanage {
-    display: flex;
-    min-height: 100vh;
+  display: flex;
+  min-height: 100vh;
 }
 
 main {
-    flex: 1;
+  flex: 1;
 }
 
 .main-container {
-    margin: 0 0 4rem;
+  margin: 0 0 4rem;
 }
 
 .map-container .leaflet-container {
-    border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0;
 }
 
 .map-container footer {
-    background: #F5F8FA;
-    border-radius: 0 0 20px 20px;
+  background: #f5f8fa;
+  border-radius: 0 0 20px 20px;
 }
-
