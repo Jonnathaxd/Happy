@@ -49,7 +49,7 @@
       </aside>
 
       <main class="animate-appear with-sidebar">
-        <form action="">
+        <form action="/save_orphanage" method="POST" onsubmit="validate(event)">
           <fieldset>
             <legend>Dados</legend>
             <div class="map-container">
@@ -87,9 +87,9 @@
                 <div class="new-upload">
                   <input
                     name="images"
-                    type="text"
                     placeholder="Cole o link da foto aqui"
                     required
+                    type="url"
                   />
                   <span onclick="deleteField(eventon)">
                     <img

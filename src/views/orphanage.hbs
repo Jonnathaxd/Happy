@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lar das meninas - Happy</title>
+    <title>{{orphanage.name}} - Happy</title>
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -51,73 +51,67 @@
 
       <main class='animate-appear with-sidebar'>
         <div class="orphanage-details">
-          <img src="/images/home.jpg" alt="Lar das meninas" />
+          <img src="{{orphanage.firstImage}}" alt="{{orphanage.name}}" />
 
           <div class="images">
-            <button onclick="selectImage(event)" class="active" type="button">
-              <img src="https://source.unsplash.com/random?id=1" alt="Lar das meninas" />
-            </button>
 
+            {{#each orphanage.images}}
             <button onclick="selectImage(event)" type="button">
-              <img src="https://source.unsplash.com/random?id=2" alt="Lar das meninas" />
+              <img src="{{this}}" alt="{{orphanage.name}}" />
             </button>
-
-            <button onclick="selectImage(event)" type="button">
-              <img src="https://source.unsplash.com/random?id=3" alt="Lar das meninas" />
-            </button>
-
-            <button onclick="selectImage(event)" type="button">
-              <img src="https://source.unsplash.com/random?id=4" alt="Lar das meninas" />
-            </button>
-
-            <button onclick="selectImage(event)" type="button">
-              <img src="https://source.unsplash.com/random?id=5" alt="Lar das meninas" />
-            </button>
-
-            <button onclick="selectImage(event)" type="button">
-              <img src="https://source.unsplash.com/random?id=6" alt="Lar das meninas" />
-            </button>
+            {{/each}}
           </div>
 
           <div class="orphanage-details-content">
-            <h1>Lar das meninas</h1>
+            <h1>{{orphanage.name}}</h1>
 
             <p>
-              Prestar assistência a criança de 06 a 15 anos que se encontre em
-              situação de risco e/ou vulnerabilidade social.
+              {{orphanage.about}}
             </p>
 
             <div class="map-container">
               <div id="mapid"></div>
+              <span data-lat = '{{orphanage.lat}}' data-lng='{{orphanage.lng}}'>
+
+              </span>
+              
               <footer>
-                <a href="">Ver rotas no Google Maps</a>
+                <a target="_blank" href="https://www.google.com/maps/place/{{orphanage.lat}}+{{orphanage.lng}}/@{{orphanage.lat}},{{orphanage.lng}},17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d{{orphanage.lat}}!4d{{orphanage.lng}}">
+                Ver rotas no google maps
+                </a>
               </footer>
             </div>
             <hr />
 
             <h2>Instruções para visita</h2>
             <p>
-              Venha como se sentir a vontade e traga muito amor e pasciência
-              para dar.
+              {{orphanage.instructions}}
             </p>
 
             <div class="open-details">
               <div class="hour">
                 <img src="/images/clock.svg" alt="Horários" />
-                Horários de visita Das 18h até as 8h
+                {{orphanage.opening_hours}}
               </div>
-              <div class="open-on-weekends">
+              {{#if orphanage.open_on_weekends}}
+              <div class="open-on-weekends open">
                 <img src="/images/info.svg" alt="Informações" />
                 Atendemos fim de semana
               </div>
+              {{else}}
+                <div class="open-on-weekends closed">
+                <img src="/images/info-red.svg" alt="Informações" />
+                Não atendemos fim de semana
+              </div>
+              {{/if}}
             </div>
-            <button type="button" class="primary-button">
+            <a target="_blank" href='https://api.whatsapp.com/send?l=pt_BR&phone={{orphanage.whatsapp}}&text=Oi, quero conversar sobre visitas no {{orphanage.name}}' class="primary-button">
               <img
                 src="/images/whatsapp.svg"
                 alt="Chamar no Whatsapp"
               />
               Entrar em contato
-            </button>
+            </a>
           </div>
         </div>
       </main>
