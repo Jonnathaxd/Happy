@@ -1,9 +1,11 @@
 
+require('dotenv').config()
 // importar pacotes
 const express = require('express')
 const path = require('path')
 const pages = require('./pages.js')
 const cors = require('cors')
+const PORT = process.env.PORT
 
 
 // iniciando o express
@@ -31,4 +33,6 @@ server.use(express.static('public'))
 .post('/save_orphanage', pages.save_orphanage)
 
 //ligar o servidor
-server.listen(5500)
+server.listen(PORT, ()=>{
+    console.log("Server is running on port " + PORT)
+})
